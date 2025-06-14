@@ -621,23 +621,45 @@
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 1.5rem;
-      }
-      
-      header {
-        padding: 4rem 1.5rem 3rem;
-      }
-      
-      nav ul {
-        gap: 0.5rem;
-      }
-      
-      .project-list {
-        grid-template-columns: 1fr;
-      }
-    }
+    /* ===== Mobile Fixes ===== */
+@media (max-width: 768px) {
+  /* Fix 1: Navigation stacks vertically */
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  nav ul li {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+  
+  nav ul li a {
+    padding: 0.8rem;
+    display: block;
+  }
+
+  /* Fix 2: Projects stack in one column */
+  .project-list {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+
+  /* Fix 3: Simplify header/footer shapes */
+  header {
+    clip-path: none !important;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  
+  footer {
+    clip-path: none !important;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+}
 
     @media (max-width: 480px) {
       nav ul {
@@ -981,6 +1003,15 @@
       themeToggle.addEventListener("click", toggleDarkMode);
       window.addEventListener("scroll", updateActiveNavLink);
     });
+    // Prevent mobile zoom on inputs (add to your existing JS)
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('input, textarea').forEach(el => {
+    el.addEventListener('focus', () => {
+      window.scrollTo(0, 0);
+      document.body.style.zoom = "100%";
+    });
+  });
+});
 
     // Set current year in footer
     function setCurrentYear() {
