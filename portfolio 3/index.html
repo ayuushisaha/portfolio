@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ayushi Saha - Creative Frontend Developer and UI/UX Enthusiast" />
-  <title>Ayushi Saha | Frontend Developer & UI/UX Designer</title>
+  <meta name="description" content="Ayushi Saha - Creative Full Stack Developer and AI/ML Enthusiast" />
+  <title>Ayushi Saha</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -126,57 +126,102 @@
     }
 
     /* Animations */
+/* Consolidated Floating Animation */
 @keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
+  0%, 100% { 
+    transform: translate(0, 0) rotate(0deg); 
+  }
+  25% { 
+    transform: translate(5px, 10px) rotate(2deg); 
+  }
+  50% { 
+    transform: translate(10px, 5px) rotate(0deg); 
+  }
+  75% { 
+    transform: translate(5px, 10px) rotate(-2deg); 
+  }
 }
 
+/* Blinking Animation (keep if needed elsewhere) */
 @keyframes blink {
-  from, to { opacity: 1; }
-  50% { opacity: 0; }
+  0%, 100% { 
+    opacity: 1; 
+  }
+  50% { 
+    opacity: 0; 
+  }
 }
 
-/* Shared Decoration Styles */
- /* Floating Decorations */
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(5px, 10px) rotate(2deg); }
-            50% { transform: translate(10px, 5px) rotate(0deg); }
-            75% { transform: translate(5px, 10px) rotate(-2deg); }
-        }
+/* Unified Decoration Styles */
+.header-decoration {
+  position: absolute; /* Changed from fixed to absolute */
+  opacity: 0.4;
+  z-index: -1; /* Send behind content */
+  pointer-events: none;
+  user-select: none;
+  font-weight: bold;
+  will-change: transform;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(0,0,0,0.3));
+}
 
-        .header-decoration {
-            position: absolute;
-            opacity: 0.08;
-            z-index: 0;
-            pointer-events: none;
-            user-select: none;
-            font-weight: bold;
-            color: #6c757d;
-            will-change: transform;
-        }      
-  /* Floating Animation */
+/* Decoration Positions */
+.decoration-1 { 
+  top: 10%; 
+  left: 5%; 
+  font-size: clamp(2rem, 4vw, 4rem);
+  color: #FF6B6B; 
+}
+.decoration-2 { 
+  top: 10%; 
+  right: 5%; 
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  color: #cd4e92; 
+  animation-delay: 0.3s; 
+}
+.decoration-3 { 
+  top: 10%; 
+  right: 15%; 
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  color: #FFBE76; 
+  animation-delay: 0.5s; 
+}
+.decoration-4 { 
+  bottom: 20%; 
+  left: 20%; 
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  color: #A55EEA; 
+  animation-delay: 0.3s; 
+}
+.decoration-5 { 
+  bottom: 35%; 
+  right: 8%; 
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  color: #45AAF2; 
+  animation-delay: 0.2s; 
+}
+.decoration-6 { 
+  bottom: 42%; 
+  left: 15%; 
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  color: #26DE81; 
+  animation-delay: 0.8s; 
+}
+
+/* Critical Fixes */
+header {
+  position: relative; /* Contain absolute decorations */
+  overflow: hidden; /* Keep decorations inside */
+  z-index: 1; /* Establish stacking context */
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
   .header-decoration {
-    position: fixed; 
-    opacity: 0.5;
-    z-index: 1;
-    pointer-events: none;
-    animation: decor-float 6s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(0,0,0,0.3)); 
-    font-weight: bold;
+    opacity: 0.2; /* More subtle on mobile */
+    font-size: 1.5rem !important; /* Unified size */
   }
-
-  @keyframes decor-float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
-  .decoration-1 { top: 10%; left: 5%; font-size: 4rem; color: #FF6B6B; }
-  .decoration-2 { top: 10%; right: 5%; font-size: 5rem; color: #cd4e92; animation-delay: 0.3s; }
-  .decoration-3 { top: 10%; right: 15%; font-size: 3.5rem; color: #FFBE76; animation-delay: 0.5s; }
-  .decoration-4 { bottom: 60%; left: 20%; font-size: 2.5rem; color: #A55EEA; animation-delay: 0.3s; }
-  .decoration-5 { bottom: 55%; right: 8%; font-size: 4.5rem; color: #45AAF2; animation-delay: 0.2s; }
-  .decoration-6 { bottom: 55%; left: 15%; font-size: 2.5rem; color: #26DE81; animation-delay: 0.8s; }
-
+}
     h2 {
       font-size: clamp(1.5rem, 3vw, 2rem);
       color: var(--primary);
@@ -331,15 +376,8 @@
       }
     }
 
-.project-card:nth-child(1) h3 { animation-delay: 0.1s; }
-.project-card:nth-child(2) h3 { animation-delay: 0.2s; }
-.project-card:nth-child(3) h3 { animation-delay: 0.3s; }
-.project-card:nth-child(4) h3 { animation-delay: 0.4s; }
-.project-card:nth-child(5) h3 { animation-delay: 0.5s; }
-.project-card:nth-child(6) h3 { animation-delay: 0.6s; }
-.project-card:nth-child(7) h3 { animation-delay: 0.7s; }
-.project-card:nth-child(n+8) h3 {
-  animation-delay: calc(0.1s * (var(--project-index)));
+.project-card {
+  animation-delay: 0s, 0s !important;
 }
 
     .project-card p {
@@ -681,11 +719,11 @@
       <div class="header-decoration decoration-1">✧</div>
       <div class="header-decoration decoration-2">✼</div>
       <div class="header-decoration decoration-3">૮꒰ ˶• ༝ •˶꒱ა</div>
-      <div class="header-decoration decoration-4">˚｡⋆୨୧˚⋆｡˚</div>
+      <div class="header-decoration decoration-4">˚｡⋆୨୧˚⋆｡</div>
       <div class="header-decoration decoration-5">εїз</div>
       <div class="header-decoration decoration-6">𖤐</div>
       <h1>Ayushi Saha</h1>
-      <p>Frontend Developer <span class="type-cursor"></span></p>
+      <p>Full-Stack Developer<span class="type-cursor"></span></p>
       <p style="font-size: 1rem; opacity: 0.8;">Crafting digital experiences with code & creativity</p>
     </div>
   </header>
@@ -702,16 +740,23 @@
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I'm a creative frontend developer passionate about crafting elegant and functional websites. With expertise in modern web technologies, I build responsive, accessible, and performant digital experiences.
+        I’m a Full-Stack Developer who builds websites, webpages, and mobile apps, specializing in cross-platform solutions with embedded AI/ML, scalable backends, and engaging frontends
       </p>
       <div class="skills">
         <span class="skill">HTML5</span>
         <span class="skill">CSS3</span>
         <span class="skill">JavaScript</span>
-        <span class="skill">React</span>
+        <span class="skill">React.js</span>
+        <span class="skill">React Native</span>
         <span class="skill">Python</span>
+        <span class="skill">AI/ML</span>
+        <span class="skill">Solid.Js</span>
+        <span class="skill">FastAPI</span>
+        <span class="skill">Typescript</span>
+        <span class="skill">LangChain</span>
+        <span class="skill">PostgreSQL</span>
+        <span class="skill">Node.js</span>
         <span class="skill">UI/UX Design</span>
-        <span class="skill">Responsive Design</span>
       </div>
     </section>
 
@@ -758,12 +803,47 @@
   <script>
     // Projects Data with Dynamic Accents
     const projects = [
+    {
+        title: "AI Twitter Bot",
+        description: "Developed a full-stack AI bot using Solid.js, Tailwind CSS, FastAPI, PostgreSQL,LLM,Openrouter and LangChain, featuring tweet/image generation, voice input, and dual-feed capabilities.",
+        link: "https://github.com/ayuushisaha/ai-twitter-bot.git",
+        tags: ["Solid.js", "Tailwind CSS", "FastAPI", "PostgreSQL","LangChain","Typescript"],
+        accentHue: 340
+      },
+      {
+        title: "GameHive",
+        description: "Developed  a responsive React.js web application featuring multiple interactive games (Whack-A-Mole, RPS, Tic Tac Toe) and user authentication, showcasing strong front-end development skills.",
+        link: "https://github.com/ayuushisaha/GameHive.git",
+        tags: ["React.js", "JavaScript" ],
+        accentHue: 450
+      },
+      {
+        title: "FitLifePro",
+        description: "a React Native fitness tracking application featuring real-time activity tracking, personalized profiles, workout guides, and nutrition plans with data persistence and dynamic UI.",
+        link: "https://github.com/ayuushisaha/fitlifepro.git",
+        tags: ["React Native"],
+        accentHue: 380
+      },
+      {
+        title: "Sentilytics",
+        description: "A Python-based web application leveraging Streamlit, NLTK, and Naive Bayes to perform real-time sentiment analysis on movie reviews, showcasing robust text preprocessing and machine learning model deployment.",
+        link: "https://github.com/ayuushisaha/sentilytics.git",
+        tags: ["Python", "Streamlit", "Pandas","NLP", "NLTK","Scikit-learn","Matplotlib","Seaborn","re"],
+        accentHue: 510
+      },
       {
         title: "Event Handler",
         description: "Developed a dynamic event landing page with interactive sections like highlights, pricing plans, FAQs, gallery, and newsletter subscription.",
         link: "https://github.com/ayuushisaha/event-handler.git",
         tags: ["HTML5", "CSS3", "JavaScript", "Formspree","Bootstrap"],
-        accentHue: 340
+        accentHue: 410
+      },
+      {
+        title: "SpamShieldAI",
+        description: "Built a spam classifier with Python,NLTK,Scikit-learn that analyzes email text through NLP preprocessing and outputs real-time predictions via a Streamlit UI with visual confidence indicators",
+        link: "https://github.com/ayuushisaha/spamshieldai.git",
+        tags: ["Python", "Streamlit", "Pandas","NLP", "NLTK","Scikit-learn","UI"],
+        accentHue: 610
       },
       {
         title: "Immersive Weather App", 
@@ -784,7 +864,7 @@
         description: "Built a responsive registration form with dark/light mode toggle and smooth year selection, styled with custom backgrounds.",
         link: "https://github.com/ayuushisaha/formzen.git",
         tags: ["HTML5", "CSS3", "JavaScript"],
-        accentHue: 280
+        accentHue: 300
       },
       {
         title: "Well-Mind Check",
@@ -793,19 +873,20 @@
         tags: ["HTML5","JavaScript", "CSS3", "UI/UX"],
         accentHue: 30
       },
-      {
-        title: "Portfolio Website",
-        description: "Personal portfolio using HTML, CSS, and JS with interactive projects and Formspree contact form integration.",
-        link: "https://github.com/ayuushisaha/portfolio.git",
-        tags: ["HTML5", "CSS3", "JavaScript","Formspree"],
-        accentHue: 60
-      },
+  
        {
-        title: "GameHive",
-        description: "A vanilla JS arcade (Tic-Tac-Toe, Whack-a-Mole, Rock-Paper-Scissors) built with HTML5, CSS3 (Grid/Flexbox, Glassmorphism), ES6, DOM Manipulation, and Responsive Design—zero frameworks, pure performance.",
-        link: "https://github.com/ayuushisaha/GameHive.git",
-        tags: ["HTML5", "CSS3", "JavaScript", "DOM Manipulation"],
+        title: "Beauty-ecommerce",
+        description: "Developed a makeup kit ecommerce website .",
+        link: "https://github.com/ayuushisaha/beauty-brand-website.git",
+        tags: ["HTML5", "CSS3", "JavaScript"],
         accentHue: 240
+      },
+      {
+        title: "Briskpay",
+        description: "UI inspired by Dribbble,custom-coded with Html, CSS and Js  — no copied code used",
+        link: "https://github.com/ayuushisaha/briskpay.git",
+        tags: ["HTML5", "CSS3", "JavaScript"],
+        accentHue: 280
       },
       {
         title: "Movie Website",
@@ -948,7 +1029,7 @@
 
     // Typewriter effect for header
     function setupTypewriter() {
-      const roles = ["Front-end Developer","UI/UX Enthusiast"];
+      const roles = ["Full-Stack Developer","App Developer","AI/ML Enthusiast"];
       const subtitle = document.querySelector('header p:first-of-type');
       const cursor = document.querySelector('.type-cursor');
       
