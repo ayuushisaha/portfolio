@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ayushi Saha - Creative Frontend Developer and UI/UX Enthusiast" />
-  <title>Ayushi Saha | Frontend Developer & UI/UX Designer</title>
+  <meta name="description" content="Ayushi Saha - Creative Full Stack Developer and AI/ML Enthusiast" />
+  <title>Ayushi Saha</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -376,15 +376,8 @@ header {
       }
     }
 
-.project-card:nth-child(1) h3 { animation-delay: 0.1s; }
-.project-card:nth-child(2) h3 { animation-delay: 0.2s; }
-.project-card:nth-child(3) h3 { animation-delay: 0.3s; }
-.project-card:nth-child(4) h3 { animation-delay: 0.4s; }
-.project-card:nth-child(5) h3 { animation-delay: 0.5s; }
-.project-card:nth-child(6) h3 { animation-delay: 0.6s; }
-.project-card:nth-child(7) h3 { animation-delay: 0.7s; }
-.project-card:nth-child(n+8) h3 {
-  animation-delay: calc(0.1s * (var(--project-index)));
+.project-card {
+  animation-delay: 0s, 0s !important;
 }
 
     .project-card p {
@@ -730,7 +723,7 @@ header {
       <div class="header-decoration decoration-5">εїз</div>
       <div class="header-decoration decoration-6">𖤐</div>
       <h1>Ayushi Saha</h1>
-      <p>Frontend Developer <span class="type-cursor"></span></p>
+      <p>Full-Stack Developer<span class="type-cursor"></span></p>
       <p style="font-size: 1rem; opacity: 0.8;">Crafting digital experiences with code & creativity</p>
     </div>
   </header>
@@ -747,16 +740,23 @@ header {
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I'm a creative frontend developer passionate about crafting elegant and functional websites. With expertise in modern web technologies, I build responsive, accessible, and performant digital experiences.
+        I’m a Full-Stack Developer who builds websites, webpages, and mobile apps, specializing in cross-platform solutions with embedded AI/ML, scalable backends, and engaging frontends
       </p>
       <div class="skills">
         <span class="skill">HTML5</span>
         <span class="skill">CSS3</span>
         <span class="skill">JavaScript</span>
-        <span class="skill">React</span>
+        <span class="skill">React.js</span>
+        <span class="skill">React Native</span>
         <span class="skill">Python</span>
+        <span class="skill">AI/ML</span>
+        <span class="skill">Solid.Js</span>
+        <span class="skill">FastAPI</span>
+        <span class="skill">Typescript</span>
+        <span class="skill">LangChain</span>
+        <span class="skill">PostgreSQL</span>
+        <span class="skill">Node.js</span>
         <span class="skill">UI/UX Design</span>
-        <span class="skill">Responsive Design</span>
       </div>
     </section>
 
@@ -805,7 +805,7 @@ header {
     const projects = [
     {
         title: "AI Twitter Bot",
-        description: "Developed a full-stack AI bot using Solid.js, Tailwind CSS, FastAPI, PostgreSQL, and LangChain, featuring tweet/image generation, voice input, and dual-feed capabilities.",
+        description: "Developed a full-stack AI bot using Solid.js, Tailwind CSS, FastAPI, PostgreSQL,LLM,Openrouter and LangChain, featuring tweet/image generation, voice input, and dual-feed capabilities.",
         link: "https://github.com/ayuushisaha/ai-twitter-bot.git",
         tags: ["Solid.js", "Tailwind CSS", "FastAPI", "PostgreSQL","LangChain","Typescript"],
         accentHue: 340
@@ -813,7 +813,7 @@ header {
       {
         title: "GameHive",
         description: "Developed  a responsive React.js web application featuring multiple interactive games (Whack-A-Mole, RPS, Tic Tac Toe) and user authentication, showcasing strong front-end development skills.",
-        link: "https://github.com/ayuushisaha/game.git",
+        link: "https://github.com/ayuushisaha/GameHive.git",
         tags: ["React.js", "JavaScript" ],
         accentHue: 450
       },
@@ -825,13 +825,26 @@ header {
         accentHue: 380
       },
       {
+        title: "Sentilytics",
+        description: "A Python-based web application leveraging Streamlit, NLTK, and Naive Bayes to perform real-time sentiment analysis on movie reviews, showcasing robust text preprocessing and machine learning model deployment.",
+        link: "https://github.com/ayuushisaha/sentilytics.git",
+        tags: ["Python", "Streamlit", "Pandas","NLP", "NLTK","Scikit-learn","Matplotlib","Seaborn","re"],
+        accentHue: 510
+      },
+      {
         title: "Event Handler",
         description: "Developed a dynamic event landing page with interactive sections like highlights, pricing plans, FAQs, gallery, and newsletter subscription.",
         link: "https://github.com/ayuushisaha/event-handler.git",
         tags: ["HTML5", "CSS3", "JavaScript", "Formspree","Bootstrap"],
         accentHue: 410
       },
-  
+      {
+        title: "SpamShieldAI",
+        description: "Built a spam classifier with Python,NLTK,Scikit-learn that analyzes email text through NLP preprocessing and outputs real-time predictions via a Streamlit UI with visual confidence indicators",
+        link: "https://github.com/ayuushisaha/spamshieldai.git",
+        tags: ["Python", "Streamlit", "Pandas","NLP", "NLTK","Scikit-learn","UI"],
+        accentHue: 610
+      },
       {
         title: "Immersive Weather App", 
         description: "Real-time weather with animated UI and forecasts using API integration (OpenWeatherMap & JSONPlaceholder).",
@@ -860,13 +873,7 @@ header {
         tags: ["HTML5","JavaScript", "CSS3", "UI/UX"],
         accentHue: 30
       },
-      {
-        title: "Portfolio Website",
-        description: "Personal portfolio using HTML, CSS, and JS with interactive projects and Formspree contact form integration.",
-        link: "https://github.com/ayuushisaha/portfolio.git",
-        tags: ["HTML5", "CSS3", "JavaScript","Formspree"],
-        accentHue: 60
-      },
+  
        {
         title: "Beauty-ecommerce",
         description: "Developed a makeup kit ecommerce website .",
@@ -1022,7 +1029,7 @@ header {
 
     // Typewriter effect for header
     function setupTypewriter() {
-      const roles = ["Front-end Developer","UI/UX Enthusiast"];
+      const roles = ["Full-Stack Developer","App Developer","AI/ML Enthusiast"];
       const subtitle = document.querySelector('header p:first-of-type');
       const cursor = document.querySelector('.type-cursor');
       
